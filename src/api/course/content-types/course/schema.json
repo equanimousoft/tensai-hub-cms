@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "overview": {
+      "type": "component",
+      "component": "courses.overview",
+      "repeatable": false
+    },
+    "faqs": {
+      "type": "component",
+      "component": "courses.fa-qs",
+      "repeatable": false
+    },
+    "details": {
+      "type": "component",
+      "component": "courses.details",
+      "repeatable": false
+    },
+    "curriculum": {
+      "type": "component",
+      "component": "courses.curriculum",
+      "repeatable": false
+    },
+    "media": {
+      "type": "component",
+      "component": "courses.media",
+      "repeatable": false
+    }
+  }
+}

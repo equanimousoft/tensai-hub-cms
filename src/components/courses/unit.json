@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_courses_units",
+  "info": {
+    "displayName": "unit",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "topics": {
+      "type": "json",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,75 +1,111 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface CoursesCurriculum extends Struct.ComponentSchema {
+  collectionName: 'components_courses_curricula';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
-    description: '';
+    displayName: 'Curriculum';
+    icon: 'book';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    unitsList: Schema.Attribute.Component<'courses.unit', true>;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface CoursesDetails extends Struct.ComponentSchema {
+  collectionName: 'components_courses_details';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
+    displayName: 'Details';
+    icon: 'bulletList';
   };
   attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    availableSeats: Schema.Attribute.Integer & Schema.Attribute.Required;
+    durationInWeeks: Schema.Attribute.Integer & Schema.Attribute.Required;
+    hoursPerWeek: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    level: Schema.Attribute.Enumeration<
+      ['Principiante', 'Intermedio', 'Avanzado', 'Experto']
+    > &
+      Schema.Attribute.Required;
+    requirements: Schema.Attribute.JSON;
+    startDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    whoIsThisFor: Schema.Attribute.Text;
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface CoursesFaQs extends Struct.ComponentSchema {
+  collectionName: 'components_courses_fa_qs';
   info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
+    displayName: 'FAQs';
+    icon: 'discuss';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    questionsList: Schema.Attribute.Component<'courses.faq', true>;
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
+export interface CoursesFaq extends Struct.ComponentSchema {
+  collectionName: 'components_courses_faqs';
   info: {
-    displayName: 'Quote';
-    icon: 'indent';
+    displayName: 'faq';
+    icon: 'discuss';
   };
   attributes: {
-    title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface CoursesMedia extends Struct.ComponentSchema {
+  collectionName: 'components_courses_media';
   info: {
     displayName: 'Media';
-    icon: 'file-video';
+    icon: 'monitor';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    vslUrl: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface CoursesOverview extends Struct.ComponentSchema {
+  collectionName: 'components_courses_overviews';
+  info: {
+    displayName: 'Overview';
+    icon: 'archive';
+  };
+  attributes: {
+    features: Schema.Attribute.JSON & Schema.Attribute.Required;
+    longDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    outcomes: Schema.Attribute.JSON & Schema.Attribute.Required;
+    shortDescription: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface CoursesUnit extends Struct.ComponentSchema {
+  collectionName: 'components_courses_units';
+  info: {
+    displayName: 'unit';
+    icon: 'book';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    topics: Schema.Attribute.JSON & Schema.Attribute.Required;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
-      'shared.media': SharedMedia;
+      'courses.curriculum': CoursesCurriculum;
+      'courses.details': CoursesDetails;
+      'courses.fa-qs': CoursesFaQs;
+      'courses.faq': CoursesFaq;
+      'courses.media': CoursesMedia;
+      'courses.overview': CoursesOverview;
+      'courses.unit': CoursesUnit;
     }
   }
 }

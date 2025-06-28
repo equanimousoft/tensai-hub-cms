@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_courses_overviews",
+  "info": {
+    "displayName": "Overview",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "longDescription": {
+      "type": "text",
+      "required": true
+    },
+    "features": {
+      "type": "json",
+      "required": true
+    },
+    "outcomes": {
+      "type": "json",
+      "required": true
+    }
+  },
+  "config": {}
+}

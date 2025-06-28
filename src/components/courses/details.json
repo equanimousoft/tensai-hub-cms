@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_courses_details",
+  "info": {
+    "displayName": "Details",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "availableSeats": {
+      "type": "integer",
+      "required": true
+    },
+    "hoursPerWeek": {
+      "type": "biginteger",
+      "required": true
+    },
+    "durationInWeeks": {
+      "type": "integer",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Principiante",
+        "Intermedio",
+        "Avanzado",
+        "Experto"
+      ]
+    },
+    "whoIsThisFor": {
+      "type": "text"
+    },
+    "requirements": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}
