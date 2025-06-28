@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_courses_fa_qs",
+  "info": {
+    "displayName": "FAQs",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "questionsList": {
+      "type": "component",
+      "component": "courses.faq",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

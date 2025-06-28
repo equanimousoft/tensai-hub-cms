@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_courses_media",
+  "info": {
+    "displayName": "Media",
+    "icon": "monitor"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "vslUrl": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

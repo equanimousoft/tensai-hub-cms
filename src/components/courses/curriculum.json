@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_courses_curricula",
+  "info": {
+    "displayName": "Curriculum",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "unitsList": {
+      "type": "component",
+      "component": "courses.unit",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
